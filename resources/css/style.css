@@ -1,14 +1,23 @@
+/*------------------------------
+Michael Santiago Portfolio
+------------------------------*/
+
+
+/* importing fonts */
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
+/* color variables */
 :root {
     --BG-color: rgba(23, 23, 23, 1);
     --title-color: rgba(255, 255, 255, 1);
 }
 
+/* general styling
 * {
-    font-weight: bold;
+    //border: 2px solid white;
 }
+*/
 
 body {
     background-color: var(--BG-color) !important;
@@ -18,36 +27,6 @@ header {
     display: inline-block;
     width: 100%;
     height: 60px;
-    //background-color: var(--title-color);
-}
-
-.title {
-
-    font-family: 'Major Mono Display', monospace;
-    font-size: 30px;
-    color: var(--title-color);
-
-    padding-top: 50px !important;
-    padding-left: 70px !important;
-
-    text-decoration: none;
-
-    animation: 2s BG infinite alternate;
-}
-
-@media (min-width: 768px) {
-    .title {
-        font-size: 60px;
-    }
-}
-
-@keyframes BG {
-    from {
-        filter: drop-shadow(2px -4px 50px rgba(160, 200, 231, 0.2));
-    }
-    to {
-        filter: drop-shadow(2px 3px 15px rgba(160, 200, 231, .4));
-    }
 }
 
 .items {
@@ -60,3 +39,146 @@ header {
 .items:hover {
     color: blue;
 }
+
+.title {
+    font-family: 'Major Mono Display', monospace;
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: -.34em;
+
+    color: red;
+
+    padding-top: 45px !important;
+    padding-left: 60px;
+
+    animation: 5s titleBG infinite alternate;
+}
+
+.title .letter1 {
+    animation: 5s titleHue infinite;
+}
+
+.title .letter2 {
+    animation: 10s titleHue infinite;
+}
+
+.title .letter3 {
+    animation: 7s titleHue infinite;
+}
+
+.title .letter4 {
+    animation: 9s titleHue infinite;
+}
+
+.title .letter5 {
+    animation: 12s titleHue infinite;
+}
+
+footer {
+
+    text-align: center;
+
+    font-family: 'DM Mono';
+
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+
+    color: white;
+
+}
+
+footer p {
+    display: inline-block;
+    margin: 30px auto;
+    opacity: 75%;
+
+    font-weight: 300;
+    font-style: italic;
+}
+
+.col {
+    border: 2px solid white;
+}
+
+.main-info {
+    text-align: center;
+    margin: 80px;
+}
+
+.main-info h1 {
+    padding: 20px;
+}
+
+.fg-text {
+
+    font-size: 60px;
+    color: white;
+
+    line-height: 90px;
+    text-wrap: nowrap;
+
+    position: absolute;
+    overflow: hidden;
+    top: 420px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.bg-text {
+
+    font-family: 'Major Mono Display', monospace;
+    font-weight: bold;
+    font-size: 115px;
+
+    letter-spacing: -5px;
+    text-wrap: nowrap;
+
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+/* animations */
+@keyframes titleHue {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes titleBG {
+    from {
+        filter: drop-shadow(2px -4px 20px rgba(255, 255, 255, 0.2));
+    }
+    to {
+        filter: drop-shadow(2px 3px 20px rgba(255, 255, 255, 0.4));
+    }
+}
+
+
+/* media queries */
+@media (max-width: 580px) {
+    .title {
+        padding-left: 55px;
+    }
+    .bg-text {
+        font-size: 90px;
+    }
+    .fg-text {
+        top: 335px;
+        font-size: 46px;
+    }
+}
+/*
+@media (min-width: 400px) {
+    * {
+        background-color: aqua;
+    }
+}
+    */
