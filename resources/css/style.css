@@ -33,11 +33,17 @@ body {
     color: blue;
 }
 
+header {
+    display: flexbox;
+    width: 50%;
+}
+
 .title {
 
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
     font-size: 30px;
+
     letter-spacing: -8px;
     padding-right: 15px;
 
