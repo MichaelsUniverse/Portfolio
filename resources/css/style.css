@@ -39,7 +39,7 @@ body {
     font-weight: bold;
     font-size: 30px;
     letter-spacing: -8px;
-    padding-right: 8px;
+    padding-right: 15px;
 
     color: red;
 
@@ -53,27 +53,22 @@ body {
 
 .title .letter1 {
     animation: 5s titleHue infinite;
-    overflow: visible;
 }
 
 .title .letter2 {
     animation: 10s titleHue infinite;
-    overflow: visible;
 }
 
 .title .letter3 {
     animation: 7s titleHue infinite;
-    overflow: visible;
 }
 
 .title .letter4 {
     animation: 9s titleHue infinite;
-    overflow: visible;
 }
 
 .title .letter5 {
     animation: 12s titleHue infinite;
-    overflow: visible;
 }
 
 footer {
