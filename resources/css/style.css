@@ -15,12 +15,9 @@ Michael Santiago Portfolio
 
 /* general styles */
 
-header {
-    overflow: visible;
-}
-
 body {
-
+    overflow: hidden;
+    font-family: 'DM Mono', monospace;
     background-color: var(--BG-color) !important;
 
 }
@@ -51,6 +48,10 @@ body {
     position: relative;
 
     transition: all 1s;
+}
+
+.title span {
+    overflow: visible;
 }
 
 .title .letter1 {
@@ -125,7 +126,6 @@ footer a:hover {
 .main-text {
     text-align: center;
     margin: 80px;
-    overflow: visible;
 }
 
 .hi-text {
@@ -139,7 +139,7 @@ footer a:hover {
     text-wrap: nowrap;
 
     position: absolute;
-    top: 100px;
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -246,6 +246,8 @@ footer a:hover {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
+
+    transition: all .4s;
 }
 
 .imagine h1 {
