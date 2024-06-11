@@ -16,10 +16,10 @@ Michael Santiago Portfolio
 /* general styles */
 
 body {
-    overflow: hidden;
     font-family: 'DM Mono', monospace;
     background-color: var(--BG-color) !important;
-
+    overflow: hidden;
+    line-height: 1;
 }
 
 .items {
@@ -38,23 +38,18 @@ body {
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
     font-size: 30px;
+    letter-spacing: -8px;
+    padding-right: 8px;
 
     color: red;
 
-
-    padding-top: 45px !important;
-    padding-left: 60px;
+    padding: 45px 60px !important;
 
     position: relative;
 
     transition: all 1s;
-}
 
-.title span {
-    margin: 0px;
-    overflow: visible;
 }
-
 
 .title .letter1 {
     animation: 5s titleHue infinite;
@@ -93,6 +88,7 @@ footer {
 
 
     color: white;
+    
 
 }
 
