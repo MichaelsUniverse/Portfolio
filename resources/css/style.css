@@ -35,7 +35,7 @@ body {
 
 header {
     display: flexbox;
-    width: 50%;
+    width: 400px;
 }
 
 .title {
@@ -43,9 +43,6 @@ header {
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
     font-size: 30px;
-
-    letter-spacing: -8px;
-    padding-right: 15px;
 
     color: red;
 
@@ -55,6 +52,10 @@ header {
 
     transition: all 1s;
 
+}
+
+.title span {
+    margin: -8px;
 }
 
 .title .letter1 {
