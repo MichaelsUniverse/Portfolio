@@ -13,20 +13,12 @@ Michael Santiago Portfolio
     --title-color: rgba(255, 255, 255, 1);
 }
 
-/* general styling
-* {
-    //border: 2px solid white;
-}
-*/
+/* general styles */
 
 body {
-    background-color: var(--BG-color) !important;
-}
 
-header {
-    display: inline-block;
-    width: 100%;
-    height: 60px;
+    background-color: var(--BG-color) !important;
+
 }
 
 .items {
@@ -41,6 +33,7 @@ header {
 }
 
 .title {
+
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
     font-size: 30px;
@@ -51,7 +44,9 @@ header {
     padding-top: 45px !important;
     padding-left: 60px;
 
-    animation: 5s titleBG infinite alternate;
+    position: relative;
+
+    transition: all 1s;
 }
 
 .title .letter1 {
@@ -82,35 +77,77 @@ footer {
 
     position: absolute;
     width: 100%;
-    bottom: 0px;
+    bottom: 0;
 
+    
     color: white;
 
 }
 
 footer p {
-    display: inline-block;
-    margin: 30px auto;
+
+    padding-bottom: 25px;
+    padding-top: 30px;
+
     opacity: 75%;
 
     font-weight: 300;
     font-style: italic;
+
+}
+
+footer a {
+    display: inline-block;
+
+    text-decoration: none;
+    color: white;
+
+    padding: 0px 20px;
+
+    transition: all .3s;
+}
+
+footer a:hover {
+    font-weight: bold;
+    transform:scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
+    transition: all .1s;
 }
 
 .col {
-    border: 2px solid white;
+    border: 1px solid white;
 }
 
-.main-info {
+.main-text {
     text-align: center;
     margin: 80px;
 }
 
-.main-info h1 {
-    padding: 20px;
+.hi-text {
+
+    font-family: 'Major Mono Display', monospace;
+    font-weight: bold;
+    font-size: 115px;
+    color: rgba(255, 255, 255, 0.2);
+
+    letter-spacing: -5px;
+    text-wrap: nowrap;
+
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+
+    transition: all .2s;
 }
 
-.fg-text {
+.hi-text span:hover {
+    color: rgba(255, 255, 255, 1);
+    transition: all .2s;
+}
+
+.name-text {
 
     font-size: 60px;
     color: white;
@@ -120,26 +157,105 @@ footer p {
 
     position: absolute;
     overflow: hidden;
-    top: 420px;
+    top: 400px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
+
+    transition: all .35s;
 }
 
-.bg-text {
+.bg {
+    display: block;
+
+    filter: saturate(100%) blur(100px);
+
+    position: absolute;
+    overflow: hidden;
+    top: -20px;
+    width: 100%;
+    height: 600px;
+}
+
+/*
+.bg .blob1 {
+    position: absolute;
+    top: 280px;
+    left: 190px;
+    z-index: -10;
+
+    width: 250px;
+
+    animation: 60s blobs_left infinite alternate;
+}
+
+.bg .blob2 {
+    position: absolute;
+    top: 280px;
+    right: 150px;
+    z-index: -100;
+
+    width: 300px;
+
+    animation: 50s blobs_left infinite alternate;
+}
+
+.bg .blob3 {
+    width: 250px;
+
+    position: absolute;
+    top: 150px;
+    left: 330px;
+    z-index: -90;
+
+    animation: 40s blobs_right infinite alternate;
+}
+
+.projects {
+
+    margin: auto;
+
+    text-decoration: none;
+
+    position: relative;
+    top: 400px;
+
+    width: 100%;
+
+}
+
+.projects img {
+    width: 90%;
+    border-radius: 20px;
+
+    margin: 40px 20px;
+}
+*/
+
+.imagine {
+
+    text-align: center;
+
+    position: absolute;
+    top: 625px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.imagine h1 {
 
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
-    font-size: 115px;
+    font-size: 40px;
 
-    letter-spacing: -5px;
+    letter-spacing: 20px;
     text-wrap: nowrap;
 
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
+    color: red;
+
+    filter: saturate(30%) drop-shadow(0 0 50px rgba(255, 0, 0, .6));
+    transition: all .2s;
 }
 
 /* animations */
@@ -152,33 +268,45 @@ footer p {
     }
 }
 
-@keyframes titleBG {
+@keyframes blobs_right {
     from {
-        filter: drop-shadow(2px -4px 20px rgba(255, 255, 255, 0.2));
+        transform: rotate(0deg);
     }
     to {
-        filter: drop-shadow(2px 3px 20px rgba(255, 255, 255, 0.4));
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes blobs_left {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
     }
 }
 
 
 /* media queries */
-@media (max-width: 580px) {
+@media (max-width: 600px) {
     .title {
         padding-left: 55px;
     }
-    .bg-text {
-        font-size: 90px;
+    .hi-text {
+        font-size: 70px;
     }
-    .fg-text {
-        top: 335px;
-        font-size: 46px;
+    .name-text {
+        top: 265px;
+        font-size: 34px;
+    }
+    .imagine {
+        top: 400px;
+    }
+    .imagine h1 {
+        font-size: 30px;
+        letter-spacing: 5px;
+    }
+    footer a {
+        padding: 0px 8px;
     }
 }
-/*
-@media (min-width: 400px) {
-    * {
-        background-color: aqua;
-    }
-}
-    */
