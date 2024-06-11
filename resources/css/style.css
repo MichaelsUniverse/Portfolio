@@ -15,6 +15,10 @@ Michael Santiago Portfolio
 
 /* general styles */
 
+header {
+    overflow: visible;
+}
+
 body {
 
     background-color: var(--BG-color) !important;
@@ -79,7 +83,7 @@ footer {
     width: 100%;
     bottom: 0;
 
-    
+
     color: white;
 
 }
@@ -121,6 +125,7 @@ footer a:hover {
 .main-text {
     text-align: center;
     margin: 80px;
+    overflow: visible;
 }
 
 .hi-text {
