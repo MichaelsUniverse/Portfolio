@@ -38,9 +38,9 @@ body {
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
     font-size: 30px;
-    letter-spacing: -.34em;
 
     color: red;
+
 
     padding-top: 45px !important;
     padding-left: 60px;
@@ -49,6 +49,12 @@ body {
 
     transition: all 1s;
 }
+
+.title span {
+    margin: -9px;
+    overflow: visible;
+}
+
 
 .title .letter1 {
     animation: 5s titleHue infinite;
@@ -243,7 +249,7 @@ footer a:hover {
     text-align: center;
 
     position: absolute;
-    top: 580px;
+    top: 590px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
