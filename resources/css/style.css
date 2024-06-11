@@ -50,28 +50,29 @@ body {
     transition: all 1s;
 }
 
-.title span {
-    overflow: visible;
-}
-
 .title .letter1 {
     animation: 5s titleHue infinite;
+    overflow: visible;
 }
 
 .title .letter2 {
     animation: 10s titleHue infinite;
+    overflow: visible;
 }
 
 .title .letter3 {
     animation: 7s titleHue infinite;
+    overflow: visible;
 }
 
 .title .letter4 {
     animation: 9s titleHue infinite;
+    overflow: visible;
 }
 
 .title .letter5 {
     animation: 12s titleHue infinite;
+    overflow: visible;
 }
 
 footer {
@@ -242,7 +243,7 @@ footer a:hover {
     text-align: center;
 
     position: absolute;
-    top: 625px;
+    top: 580px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
