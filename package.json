@@ -1,0 +1,20 @@
+{
+  "name": "assignment2",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Michael Santiago",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "run:client": "cd client && npm start",
+    "run:server": "cd server && node server.js",
+    "dev": "npm-run-all --parallel dev:server dev:client",
+    "start": "npm-run-all --parallel run:server run:client"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

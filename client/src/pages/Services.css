@@ -1,0 +1,51 @@
+.services {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.service-item {
+    a {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 12px;
+        margin-top: 10px;
+        text-decoration: none;
+        color: black;
+    }
+    a:hover {
+        color: var(--maya-blue);
+        cursor: pointer;
+        transform: translateY(-1px);
+    }
+    p {
+        padding-top: 15px;
+    }
+
+}
+
+.service-list {
+    padding-top: 40px;
+}
+
+.links {
+    p {
+        text-align: center;
+        align-items: center;
+        height: 100%;
+    }
+    .icon {
+        height: 20px;
+        width: 20px;
+        margin-top: 11px;
+    }
+}
+
+.divider-line {
+    height: 1px;
+    width: 100%;
+    background-color: var(--dun);
+    margin-top: 45px;
+    margin-bottom: 55px;
+}

@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* * {
+    border: 1px solid blue;
+} */
+
+:root {
+    /* Variables */
+    /* Colors */
+    --ebony: #66655Aff;
+    --dun: #c3bfadff;
+    --eggshell: #f0eddcff;
+    --maya-blue: #62BCF0ff;
+    --gunmetal: #102B38ff;
+
+    /* Sizes */
+    --nav-size: 100px;
+    --section-size: calc(100vh - calc(2 * var(--nav-size)));
+    --min-section-size: 800px;
+    --max-width: 2400px;
+
+
+    /* Setup */
+    font-family: 'Google Sans Code', Helvetica, Arial, sans-serif;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--eggshell);
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: var(--section-size);
+    min-height: var(--min-section-size);
+    width: 100%;
+    max-width: var(--max-width);
+}
+
+h1 {
+    font-size: 3.2em;
+}

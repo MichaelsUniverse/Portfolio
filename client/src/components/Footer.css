@@ -1,0 +1,40 @@
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.02);
+    height: var(--nav-size);
+}
+
+.footer-container {
+    bottom: 0;
+
+    width: 100%;
+    max-width: var(--max-width);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+    padding: 0 75px 0 65px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    a {
+        color: black;
+        height: 25px;
+    }
+
+    a:hover {
+        transform: translateY(-1px);
+        cursor: pointer;
+        color: var(--maya-blue);
+    }
+}
