@@ -21,6 +21,10 @@
         margin: 0;
     }
 
+    .description {
+        margin-top: 20px;
+    }
+
     .tech-stack {
         list-style-type: none;
         padding: 0;

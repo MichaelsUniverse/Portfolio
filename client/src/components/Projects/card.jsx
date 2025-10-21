@@ -24,7 +24,7 @@ export default function Card({ project }) {
                         <p className="description">{description}</p>
                     </div>
                     <ul className="tech-stack">
-                        <h3>Tech Stack</h3>
+                        <h3>Built With</h3>
                         <div className='languages'>
                             {tech.map(t => (
                                 <li key={t} className="tech">| {t}</li>
