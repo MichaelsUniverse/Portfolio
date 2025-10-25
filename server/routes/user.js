@@ -5,6 +5,7 @@ import {
     getUserById,
     updateUser,
     deleteUser,
+    deleteAllUsers,
     loginUser
 } from '../controllers/user.js'
 
@@ -16,6 +17,7 @@ userRoutes.get('/:id', getUserById)
 userRoutes.post('/', createUser)
 userRoutes.put('/:id', updateUser)
 userRoutes.delete('/:id', deleteUser)
+userRoutes.delete('/', deleteAllUsers)
 userRoutes.post('/login', loginUser)
 
 export default userRoutes

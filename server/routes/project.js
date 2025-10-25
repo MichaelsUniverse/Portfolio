@@ -4,7 +4,8 @@ import {
     getAllProjects,
     getProjectById,
     updateProject,
-    deleteProject
+    deleteProject,
+    deleteAllProjects
 } from '../controllers/project.js'
 
 const projectRoutes = express.Router()
@@ -15,5 +16,6 @@ projectRoutes.get('/:id', getProjectById)
 projectRoutes.post('/', createProject)
 projectRoutes.put('/:id', updateProject)
 projectRoutes.delete('/:id', deleteProject)
+projectRoutes.delete('/', deleteAllProjects)
 
 export default projectRoutes

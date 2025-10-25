@@ -4,24 +4,32 @@ import contact from '../models/contact.js'
 export const getAllContacts = async (req, res) => {
     try {
         const contacts = await contact.find()
+
+        if (!contacts || contacts.length === 0) {
+            return res.status(404).json({ message: "No Contacts Found" })
+        }
+
         res.status(200).json(contacts)
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(500).json({ message: error.message })
     }
 }
 
 // Get Contact by Id
 export const getContactById = async (req, res) => {
+
+    const ID = req.params.id
+
     try {
-        const foundContact = await contact.findById(req.params.id)
+        const foundContact = await contact.findById(ID)
 
         if (!foundContact) {
-            return res.status(404).json({message: "Contact Not Found"})
+            return res.status(404).json({ message: "Contact Not Found" })
         }
 
         res.status(200).json(foundContact)
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(500).json({ message: error.message })
     }
 }
 
@@ -29,7 +37,9 @@ export const getContactById = async (req, res) => {
 
 export const createContact = async (req, res) => {
 
-    const { firstname, lastname, email } = req.body;
+    console.log(req.body);
+
+    const { firstname, lastname, email } = req.body
 
     const newContact = new contact({
         firstname,
@@ -41,47 +51,52 @@ export const createContact = async (req, res) => {
         const savedContact = await newContact.save()
 
         if (!savedContact) {
-            return res.status(400).json({message: "Failed to create Contact"})
+            return res.status(400).json({ message: "Failed to create Contact" })
         }
 
-        res.status(201).json({message: "Contact Created Successfully", contact: savedContact})
+        res.status(201).json({ contact: savedContact })
     } catch (error) {
-        res.status(400).json({message: error.message})
+        res.status(400).json({ message: error.message })
     }
 }
 
 // Update a Contact by ID
 export const updateContact = async (req, res) => {
 
+    const ID = req.params.id
+
     try {
         const updatedContact = await contact.findByIdAndUpdate(
-            req.params.id,
-            req.body,
+            ID,
+            {$set: req.body},
             {new: true}
         )
 
         if (!updatedContact) {
-            return res.status(404).json({message: "Contact Not Found"})
+            return res.status(404).json({ message: "Contact Not Found" })
         }
 
-        res.status(200).json(updatedContact)
+        res.status(200).json({ contact: updatedContact })
     } catch (error) {
-        res.status(400).json({message: error.message})
+        res.status(400).json({ message: error.message })
     }
 }
 
 // Delete a Contact by ID
 export const deleteContact = async (req, res) => {
+
+    const ID = req.params.id
+
     try {
-        const deletedContact = await contact.findByIdAndDelete(req.params.id)
+        const deletedContact = await contact.findByIdAndDelete(ID)
 
         if (!deletedContact) {
-            return res.status(404).json({message: "Contact Not Found"})
+            return res.status(404).json({ message: "Contact Not Found" })
         }
 
-        res.status(200).json({message: "Contact Deleted"})
+        res.status(200).json({ message: "Contact Deleted" })
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(500).json({ message: error.message })
     }
 }
 
@@ -91,11 +106,11 @@ export const deleteAllContacts = async (req, res) => {
         const result = await contact.deleteMany({})
 
         if (result.deletedCount === 0) {
-            return res.status(404).json({message: "No Contacts Found to Delete"})
+            return res.status(404).json({ message: "No Contacts Found to Delete" })
         }
 
-        res.status(200).json({message: `${result.deletedCount} Contacts Deleted`})
+        res.status(200).json({ message: "All Contacts Deleted" })
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(500).json({ message: error.message })
     }
 }

@@ -11,6 +11,8 @@ connection.once('open', () => { console.log("Connected to MongoDB")})
 
 import projectRoutes from './routes/project.js'
 import userRoutes from './routes/user.js'
+import contactRoutes from './routes/contact.js'
+import educationRoutes from './routes/education.js'
 
 const app = express()
 
@@ -21,11 +23,13 @@ app.use(morgan('dev'))
 // Routes
 
 app.get('/', (req, res) => {
-    res.send.json({ message: "Welcome to My Portfolio application." })
+    res.status(200).json({ message: "Welcome to My Portfolio application." })
 })
 
 app.use('/projects', projectRoutes)
 app.use('/users', userRoutes)
+app.use('/contacts', contactRoutes)
+app.use('/education', educationRoutes)
 
 app.listen(3000)
 
