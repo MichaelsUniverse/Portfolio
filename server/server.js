@@ -7,7 +7,8 @@ import dotenv from 'dotenv/config'
 mongoose.connect(process.env.MONGODB_URI)
 
 const corsOptions = {
-        origin: 'www.justmichael.dev'
+        origin: 'https://www.justmichael.dev',
+        credentials: true
     };
 
 const connection = mongoose.connection
