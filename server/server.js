@@ -1,9 +1,14 @@
 import express from 'express'
+import cors from 'cors'
 import morgan from 'morgan'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv/config'
 
 mongoose.connect(process.env.MONGODB_URI)
+
+const corsOptions = {
+        origin: 'www.justmichael.dev'
+    };
 
 const connection = mongoose.connection
 connection.on('error', console.error.bind(console, "MongoDB connection error..."))
@@ -20,6 +25,10 @@ const app = express()
 app.use(express.json())
 
 app.use(morgan('dev'))
+
+// CORS
+
+app.use(cors(corsOptions));
 
 // Routes
 
