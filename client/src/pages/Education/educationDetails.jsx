@@ -1,6 +1,7 @@
 import { use, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Title } from '../../components/Title';
+import { apiUrl } from '../../config/api';
 import './educationDetails.css'
 
 export function EducationDetails(){
@@ -29,7 +30,7 @@ export function EducationDetails(){
                 }
 
                 try {
-                    const response = await fetch(`/api/education/${id}`, {
+                    const response = await fetch(`${apiUrl}/education/${id}`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
@@ -84,7 +85,7 @@ export function EducationDetails(){
         }
 
         const method = id ? 'PUT' : 'POST';
-        const url = id ? `/api/education/${id}` : `/api/education`;
+        const url = id ? `${apiUrl}/education/${id}` : `${apiUrl}/education`;
 
         try {
             const response = await fetch(url, {

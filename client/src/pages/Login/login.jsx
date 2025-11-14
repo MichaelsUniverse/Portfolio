@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Title } from '../../components/Title';
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Title } from '../../components/Title'
+import { apiUrl } from '../../config/api';
 import './login.css'
 
 export function Login(){
@@ -11,7 +12,6 @@ export function Login(){
     });
 
     const [signup, setSignup] = useState(false);
-
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -24,8 +24,10 @@ export function Login(){
     const handleLogin = async (e) => {
         e.preventDefault();
 
+        console.log(apiUrl);
+
         try {
-            const response = await fetch('/api/auth/login', {
+            const response = await fetch(`${apiUrl}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -55,7 +57,7 @@ export function Login(){
         e.preventDefault();
 
         try {
-            const response = await fetch('/api/auth/register', {
+            const response = await fetch(`${apiUrl}/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -92,7 +94,7 @@ export function Login(){
         <Title Title="Login" Description="Login form" />
         <section className='login'>
             <h2>{signup ? "Sign Up" : "Login"}</h2>
-            <form href="/">
+            <form href="/" className='login-form'>
             { signup &&
                 <div className='form-group'>
                     <label htmlFor="email">

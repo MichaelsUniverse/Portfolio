@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Title } from '../../components/Title.jsx';
 import { EducationCard } from '../../components/Education/EducationCard.jsx';
+import { apiUrl } from '../../config/api';
 import './Education.css';
 
 export function Education(){
@@ -18,7 +19,7 @@ export function Education(){
                     return;
                 }
 
-                const response = await fetch('/api/education', {
+                const response = await fetch(`${apiUrl}/education`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
@@ -48,12 +49,10 @@ export function Education(){
             </header>
             <div className='education-list'>
                 {educations.map((edu) => (
-                    <>
-                        <EducationCard
-                            key={edu._id}
-                            School={edu}
-                        />
-                    </>
+                    <EducationCard
+                        key={edu._id}
+                        School={edu}
+                    />
                 ))}
             </div>
             <button className='new-education-btn' onClick={() => navigate('/education-details')}>

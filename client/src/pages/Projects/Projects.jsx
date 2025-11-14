@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '../../components/Projects/card';
 import { Title } from '../../components/Title';
+import { apiUrl } from '../../config/api';
 import './Projects.css';
 
 export function Projects(){
@@ -18,7 +19,7 @@ export function Projects(){
                   return;
               }
 
-              const response = await fetch('/api/projects', {
+              const response = await fetch(`${apiUrl}/projects`, {
                   headers: {
                       'Content-Type': 'application/json',
                       'Authorization': `Bearer ${token}`

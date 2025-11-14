@@ -1,21 +1,62 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Title } from '../../components/Title';
+import { apiUrl } from '../../config/api';
 import './Contact.css'
 
 export function Contact(){
+    const [contactForm, setContactForm] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
     const navigate = useNavigate();
 
-    const onSubmit = (e) => {
-        const data = {
-            name: e.target.name.value,
-            email: e.target.email.value,
-            message: e.target.message.value
+    const handleChange = (e) => {
+        e.preventDefault()
+        const { name, value } = e.target;
+
+        setContactForm({
+            ...contactForm,
+            [name]: value
+        });
+    }
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            navigate('/login');
+        }
+    }, []);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            navigate('/login');
+            return;
         }
 
-        console.log("Form submitted");
-        console.log("Form Data: ", data);
+        try {
+            const response = await fetch(`${apiUrl}/contacts`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(contactForm)
+            });
 
-        navigate('/'); // Redirect to home page after submission
+            if (!response.ok) {
+                throw new Error('Failed to save contact');
+            }
+
+            navigate('/');
+        } catch (error) {
+            console.error('Error saving contact', error);
+        }
     }
 
     return (
@@ -26,23 +67,23 @@ export function Contact(){
                 <h1>Contact Me</h1>
             </header>
             <div>
-                <form onSubmit={onSubmit} href="/">
+                <form onSubmit={handleSubmit} className='contact-form'>
                     <div className='form-row'>
                         <div className='form-group'>
                             <label htmlFor="name">Name</label>
-                            <input type="text" id="name" name="name" required placeholder='John Doe'/>
+                            <input type="text" id="name" name="name" required placeholder='John Doe' onChange={handleChange}/>
                         </div>
                         <br />
                         <div className='form-group'>
                             <label htmlFor="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder='john@email.com' />
+                            <input type="email" id="email" name="email" required placeholder='john@email.com' onChange={handleChange}/>
                         </div>
                     </div>
                     <br />
                     <div className='form-group'>
                         <label htmlFor="message">Message</label>
-                        <textarea id="message" name="message" required
-                            rows={10} cols={50} style={{ resize: 'vertical' }}
+                        <textarea id="message" name="message" required onChange={handleChange}
+                            rows={20} cols={96} style={{ resize: 'vertical' }}
                         />
                     </div>
                     <br />

@@ -6,9 +6,12 @@
 
 }
 
-form {
+.contact-form {
     display: flex;
     flex-direction: column;
+
+    align-items: center;
+
     gap: 10px;
     margin-top: 50px;
 }
@@ -50,4 +53,8 @@ button:hover {
     flex-direction: column;
     flex: 1;
     gap: 5px;
+}
+
+textarea {
+    resize: vertical;
 }

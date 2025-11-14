@@ -38,7 +38,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 40px;
+    gap: 10px;
 }
 
 .nav-container > .nav-links > * {
@@ -47,9 +47,14 @@ nav {
     height: 23px;
 }
 
+.auth-link {
+    display: flex;
+}
+
 .nav-container > .nav-links > .auth-link > * {
     color: black;
     text-decoration: none;
+
 }
 
 .nav-container > .nav-links > .auth-link > *:hover {

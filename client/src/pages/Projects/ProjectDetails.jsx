@@ -1,6 +1,7 @@
 import { use, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Title } from '../../components/Title';
+import { apiUrl } from '../../config/api';
 import './projectDetails.css'
 
 export function ProjectDetails(){
@@ -26,7 +27,7 @@ export function ProjectDetails(){
                 }
 
                 try {
-                    const response = await fetch(`/api/projects/${id}`, {
+                    const response = await fetch(`${apiUrl}/projects/${id}`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
@@ -74,7 +75,7 @@ export function ProjectDetails(){
         }
 
         const method = id ? 'PUT' : 'POST';
-        const url = id ? `/api/projects/${id}` : `/api/projects`;
+        const url = id ? `${apiUrl}/projects/${id}` : `${apiUrl}/projects`;
 
         try {
             const response = await fetch(url, {
