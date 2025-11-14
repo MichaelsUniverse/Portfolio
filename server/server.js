@@ -40,7 +40,7 @@ app.use(morgan('dev'))
 // CORS
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // include before other routes -- https://expressjs.com/en/resources/middleware/cors.html
+app.options('/*', cors(corsOptions));  // include before other routes -- https://expressjs.com/en/resources/middleware/cors.html
 
 
 // Routes
