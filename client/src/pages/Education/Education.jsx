@@ -4,8 +4,6 @@ import { Title } from '../../components/Title.jsx';
 import { EducationCard } from '../../components/Education/EducationCard.jsx';
 import './Education.css';
 
-import education_list from '../../data/education.js';
-
 export function Education(){
     const [educations, setEducations] = useState([]);
     const navigate = useNavigate();
