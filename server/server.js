@@ -6,10 +6,20 @@ import dotenv from 'dotenv/config'
 
 mongoose.connect(process.env.MONGODB_URI)
 
-// const corsOptions = {
-//         origin: 'https://www.justmichael.dev',
-//         credentials: true
-//     };
+const allowedOrigins = [
+  'https://www.justmichael.dev',
+  'http://localhost:5173'
+];
+
+const corsOptions = {
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+    return cb(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS']
+};
 
 const connection = mongoose.connection
 connection.on('error', console.error.bind(console, "MongoDB connection error..."))
@@ -29,8 +39,8 @@ app.use(morgan('dev'))
 
 // CORS
 
-app.use(cors());
-app.options('*', cors()) // include before other routes -- https://expressjs.com/en/resources/middleware/cors.html
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // include before other routes -- https://expressjs.com/en/resources/middleware/cors.html
 
 
 // Routes
