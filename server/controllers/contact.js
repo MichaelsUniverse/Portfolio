@@ -37,8 +37,6 @@ export const getContactById = async (req, res) => {
 
 export const createContact = async (req, res) => {
 
-    console.log(req.body);
-
     const { name, email, message } = req.body
 
     const newContact = new contact({

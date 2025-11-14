@@ -39,7 +39,6 @@ export function ProjectDetails(){
 
                     const data = await response.json();
 
-                    console.log("data:", data);
                     setProject({
                         title: data.project.title,
                         description: data.project.description,
@@ -47,8 +46,6 @@ export function ProjectDetails(){
                         link: data.project.link,
                         repo: data.project.repo
                     });
-
-                    console.log(project)
 
                 } catch (error) {
                     console.error('Error fetching project', error);

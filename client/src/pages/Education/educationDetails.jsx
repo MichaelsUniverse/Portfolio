@@ -42,8 +42,6 @@ export function EducationDetails(){
 
                     const data = await response.json();
 
-                    console.log("data:", data);
-
                     const toDateInput = (value) =>
                                 value ? new Date(value).toISOString().slice(0, 10) : '';
 
@@ -57,8 +55,6 @@ export function EducationDetails(){
                         estend: toDateInput(data.estend),
                         color: data.color
                     });
-
-                    console.log(education)
 
                 } catch (error) {
                     console.error('Error fetching education', error);

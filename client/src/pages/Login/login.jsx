@@ -24,8 +24,6 @@ export function Login(){
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        console.log(apiUrl);
-
         try {
             const response = await fetch(`${apiUrl}/auth/login`, {
                 method: 'POST',
