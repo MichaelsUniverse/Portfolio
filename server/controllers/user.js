@@ -1,5 +1,4 @@
 import user from "../models/user.js"
-import { generateToken } from "../utils/jwt.js"
 
 // Create CRUD operations for User
 // Get all users = db.users.find()
@@ -35,35 +34,36 @@ export const getUserById = async (req, res) => {
     }
 }
 
+// REPLACED BY REGISTER IN AUTH.JS
 // Create a new user = db.users.insertOne({})
-export const createUser = async (req, res) => {
+// export const createUser = async (req, res) => {
 
-    const { name, email, password } = req.body
+//     const { name, email, password } = req.body
 
-    const newUser = new user({
-        name,
-        email,
-        password
-    })
+//     const newUser = new user({
+//         name,
+//         email,
+//         password
+//     })
 
-    try {
-        const savedUser = await newUser.save()
+//     try {
+//         const savedUser = await newUser.save()
 
-        if (!savedUser) {
-            return res.status(400).json({ message: "Failed to create User" })
-        }
+//         if (!savedUser) {
+//             return res.status(400).json({ message: "Failed to create User" })
+//         }
 
-        const token = generateToken(savedUser);
+//         const token = generateToken(savedUser);
 
-        if (!token && savedUser) {
-            return res.status(201).json({ user: savedUser });
-        }
+//         if (!token && savedUser) {
+//             return res.status(201).json({ user: savedUser });
+//         }
 
-        res.status(201).json({ user: savedUser, token })
-    } catch (error) {
-        res.status(400).json({ message: error.message })
-    }
-}
+//         res.status(201).json({ user: savedUser, token })
+//     } catch (error) {
+//         res.status(400).json({ message: error.message })
+//     }
+// }
 
 // Update a user by ID = db.users.updateOne({id}, {$set: {}})
 export const updateUser = async (req, res) => {
@@ -120,29 +120,30 @@ export const deleteAllUsers = async (req, res) => {
     }
 }
 
+// REPLACED BY LOGIN IN AUTH.JS
 // Login User
-export const loginUser = async (req, res) => {
-    try {
-        const { email, password } = req.body
+// export const loginUser = async (req, res) => {
+//     try {
+//         const { email, password } = req.body
 
-        const loginUser = await user.findOne({ email })
+//         const loginUser = await user.findOne({ email })
 
-        if (!loginUser) {
-            return res.status(404).json({ message: "User Not Found" })
-        }
+//         if (!loginUser) {
+//             return res.status(404).json({ message: "User Not Found" })
+//         }
 
-        const isPasswordValid = await loginUser.comparePassword(password)
+//         const isPasswordValid = await loginUser.comparePassword(password)
 
-        console.log(isPasswordValid)
+//         console.log(isPasswordValid)
 
-        if (!isPasswordValid) {
-            return res.status(401).json({ message: "Invalid Password" })
-        }
+//         if (!isPasswordValid) {
+//             return res.status(401).json({ message: "Invalid Password" })
+//         }
 
-        const token = generateToken(loginUser)
+//         const token = generateToken(loginUser)
 
-        res.status(200).json({ message: "Login Successful", user: loginUser, token })
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-}
+//         res.status(200).json({ message: "Login Successful", user: loginUser, token })
+//     } catch (error) {
+//         res.status(500).json({message: error.message})
+//     }
+// }

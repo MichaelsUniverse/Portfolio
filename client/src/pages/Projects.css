@@ -29,3 +29,14 @@ header {
         padding: 0;
     }
 }
+
+.new-project-btn {
+    margin: 40px 0;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    background-color: var(--dune);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -8,5 +8,10 @@ export default defineConfig({
     allowedHosts: [
         'comp-229-fo3y.onrender.com'
     ]
+  },
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
   }
 })

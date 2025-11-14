@@ -1,24 +1,24 @@
 import express from 'express'
 import authMiddleware from '../middleware/auth.js'
 import {
-    createUser,
     getAllUsers,
     getUserById,
     updateUser,
     deleteUser,
-    deleteAllUsers,
-    loginUser
+    deleteAllUsers
+    // createUser REPLACED IN AUTH.JS
+    // loginUser REPLACED IN AUTH.JS
 } from '../controllers/user.js'
 
 const userRoutes = express.Router()
 
 // HTTP verbs Get, Post, Put, Delete
-userRoutes.get('/', authMiddleware, getAllUsers)
-userRoutes.get('/:id', authMiddleware, getUserById)
-userRoutes.post('/', createUser)
-userRoutes.put('/:id', authMiddleware, updateUser)
-userRoutes.delete('/:id', authMiddleware, deleteUser)
-userRoutes.delete('/', authMiddleware, deleteAllUsers)
-userRoutes.post('/login', loginUser)
+userRoutes.get('/', getAllUsers)
+userRoutes.get('/:id', getUserById)
+// userRoutes.post('/', createUser) REPLACED IN AUTH.JS
+userRoutes.put('/:id', updateUser)
+userRoutes.delete('/:id', deleteUser)
+userRoutes.delete('/', deleteAllUsers)
+// userRoutes.post('/login', loginUser) REPLACED IN AUTH.JS
 
 export default userRoutes
