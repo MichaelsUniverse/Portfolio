@@ -15,7 +15,7 @@ h2, p {
 
     width: 100%;
 
-    height: 180px;
+    height: 200px;
 }
 .education-container:hover {
     background-color: var(--bg-hover);
@@ -41,7 +41,7 @@ h2, p {
     flex-direction: column;
     justify-content: space-between;
 
-    height: 100%;
+    height: 90%;
 }
 .school-dates {
     display: flex;
@@ -57,4 +57,19 @@ h2, p {
     width: 100%;
     height: 1px;
     background-color: var(--dun);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    margin-top: 50px;
+    padding-right: 30px;
+    width: fit-content;
+
+    &:hover {
+        color: var(--maya-blue);
+        cursor: pointer;
+        transform: translateY(-1px);
+    }
 }

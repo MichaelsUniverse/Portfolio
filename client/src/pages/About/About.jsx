@@ -1,7 +1,7 @@
 import { Download } from 'iconoir-react'
-import { Title } from '../components/Title';
-import picture from '../assets/picture_c.png';
-import resume from '../assets/Michael_Santiago_Resume.pdf';
+import { Title } from '../../components/Title';
+import picture from '../../assets/picture_c.png';
+import resume from '../../assets/Michael_Santiago_Resume.pdf';
 import './About.css';
 
 export function About(){

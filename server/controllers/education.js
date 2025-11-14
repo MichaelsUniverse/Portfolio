@@ -36,15 +36,17 @@ export const getEducationById = async (req, res) => {
 // Create a new education
 export const createEducation = async (req, res) => {
 
-    const { title, firstname, lastname, email, completion, description } = req.body
+    const { title, degree, school, gpa, startDate, endDate, estend, color } = req.body
 
     const newEducation = new education({
         title,
-        firstname,
-        lastname,
-        email,
-        completion,
-        description
+        degree,
+        school,
+        gpa,
+        startDate,
+        endDate,
+        estend,
+        color
     })
 
     try {

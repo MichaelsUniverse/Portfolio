@@ -42,15 +42,14 @@ export const getProjectById = async (req, res) => {
 // Create a new project = db.projects.insertOne({})
 export const createProject = async (req, res) => {
 
-    const { title, firstname, lastname, email, completion, description } = req.body
+    const { title, description, techStack, link, repo } = req.body
 
     const newProject = new project({
         title,
-        firstname,
-        lastname,
-        email,
-        completion,
-        description
+        description,
+        techStack,
+        link,
+        repo
     })
 
     try {

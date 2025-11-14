@@ -1,4 +1,4 @@
-import { Title } from '../components/Title';
+import { Title } from '../../components/Title';
 import { SendMail } from 'iconoir-react';
 import './Services.css'
 

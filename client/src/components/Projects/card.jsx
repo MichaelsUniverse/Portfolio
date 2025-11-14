@@ -1,23 +1,50 @@
-import { ArrowEmailForward } from 'iconoir-react';
+import { useNavigate } from 'react-router-dom';
 import './card.css'
 
 export default function Card({ project }) {
+    const navigate = useNavigate();
+
     const {
-        image,
         title,
         description,
-        tech,
+        techStack,
         link,
-        repo,
-        live
+        repo
     } = project;
+
+    const tech = techStack.split(',').map(t => t.trim());
+
+    const handleDelete = async () => {
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            navigate('/login');
+            console.error('No token found, redirecting to login');
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/projects/${project._id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete project');
+            }
+
+            navigate(0); // Refresh the page to reflect changes
+
+        } catch (error) {
+            console.error(`Error deleting project: ${error.message}`);
+        }
+    }
 
     return (
         <>
             <div className="card-container">
-                {image && (
-                    <img src={image}/>
-                )}
                 <div className="card-details">
                     <div>
                         <h2 className="title">{title}</h2>
@@ -33,7 +60,7 @@ export default function Card({ project }) {
                         </div>
                     </ul>
                     <div className="project-links">
-                        {live && link && (
+                        {link && (
                             <>
                                 <a
                                     href={link}
@@ -51,6 +78,20 @@ export default function Card({ project }) {
                                 Repo
                             </a>
                         )}
+                    </div>
+                    <div className="project-actions">
+                        <a
+                            onClick={() => navigate(`/project-details/${project._id}`)}
+                            target="_blank"
+                        >
+                            Edit Project
+                        </a>
+                        <a
+                            onClick={handleDelete}
+                            target="_blank"
+                        >
+                            Delete Project
+                        </a>
                     </div>
                     </div>
             </div>

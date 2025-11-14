@@ -1,0 +1,26 @@
+.education {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.new-education-btn {
+    margin: 40px 0;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    background-color: var(--dune);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    min-width: 200px;
+}

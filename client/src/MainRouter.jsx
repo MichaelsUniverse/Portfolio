@@ -3,7 +3,8 @@ import {
     About, Contact,
     Education, Home,
     Projects, Services,
-    Login
+    Login, ProjectDetails,
+    EducationDetails
 } from './pages';
 
 const MainRouter = () => {
@@ -17,6 +18,10 @@ const MainRouter = () => {
                 <Route path="/projects" element={<Projects />}/>
                 <Route path="/services" element={<Services />}/>
                 <Route path="/login" element={<Login />}/>
+                <Route path="/project-details" element={<ProjectDetails />}/>
+                <Route path="/project-details/:id" element={<ProjectDetails />}/>
+                <Route path="/education-details" element={<EducationDetails />}/>
+                <Route path="/education-details/:id" element={<EducationDetails />}/>
             </Routes>
         </>
     )

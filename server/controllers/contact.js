@@ -39,12 +39,12 @@ export const createContact = async (req, res) => {
 
     console.log(req.body);
 
-    const { firstname, lastname, email } = req.body
+    const { name, email, message } = req.body
 
     const newContact = new contact({
-        firstname,
-        lastname,
-        email
+        name,
+        email,
+        message
     })
 
     try {

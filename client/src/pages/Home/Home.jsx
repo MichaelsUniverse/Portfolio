@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Title } from '../components/Title';
-import picture from '../assets/picture_c.png';
+import { Title } from '../../components/Title';
+import picture from '../../assets/picture_c.png';
 import './Home.css';
 
 export function Home(){
