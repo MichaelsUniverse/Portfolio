@@ -70,13 +70,13 @@ export function EducationCard({ School }){
                             onClick={() => navigate(`/education-details/${School._id}`)}
                             target="_blank"
                         >
-                            Edit Project
+                            Edit Education
                         </a>
                         <a
                             onClick={handleDelete}
                             target="_blank"
                         >
-                            Delete Project
+                            Delete Education
                         </a>
                 </div>
                 <div className='divider'/>

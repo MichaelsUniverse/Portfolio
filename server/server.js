@@ -6,14 +6,10 @@ import dotenv from 'dotenv/config'
 
 mongoose.connect(process.env.MONGODB_URI)
 
-const allowedOrigins = [
-  'https://www.justmichael.dev',
-  'http://localhost:5173'
-];
-
 const corsOptions = {
   origin: [
-    'https://www.justmichael.dev'
+    'https://www.justmichael.dev',
+    'http://localhost:5173'
   ],
   credentials: true
 };

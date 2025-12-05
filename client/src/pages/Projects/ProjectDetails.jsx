@@ -117,7 +117,7 @@ export function ProjectDetails(){
                     </div>
                     <div className='form-section'>
                         <div className='form-group'>
-                            <label htmlFor="tech stack">
+                            <label htmlFor="techStack">
                                 <p>Tech Stack</p>
                             </label>
                             <input type="text" id="techStack" name="techStack" required onChange={handleChange} value={project.techStack}/>
