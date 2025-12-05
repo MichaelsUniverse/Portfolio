@@ -22,7 +22,7 @@ export function About(){
                             frameworks that I find interesting to make weird things.
                         </p>
                         <p className='last-updated'>
-                            Last Updated Sept 15, 2025
+                            Last Updated Dec 5th, 2025
                         </p>
                     </div>
                     <a href={resume} download className='resume-button'>
